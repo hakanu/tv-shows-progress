@@ -91,23 +91,27 @@ jafApp.controller('showController', ['$scope', 'firebaseConnection', function($s
     $scope.user = firebaseConnection.user;
     console.log($scope.user);
     var ref = firebaseConnection.firebaseRef;
-    //var ref = new Firebase(_FIREBASE_URL + "/diziler");
     console.log('ref: ' + ref);
 
     $scope.fetchShows = function() {
       console.log("Fetching shows");
-      ref.orderByChild("average").limitToLast(20).on("value", function(snapshot) {
+      ref.limitToFirst(50).once("value", function(snapshot) {
         console.log(snapshot.val());
         $scope.shows = snapshot.val();
         $scope.$apply();
       });
-      
-      // ref.on("value", function(snapshot) {
-      //   console.log(snapshot);
-      //   console.log(snapshot.val());
-      // }, function (errorObject) {
-      //   console.log("The read failed: " + errorObject.code);
-      // });
+    }
+
+    $scope.seen = function(showId) {
+      console.log("Seen " + showId);
+    }
+
+    $scope.skip = function(showId) {
+      console.log("Skipped " + showId);
+    }
+
+    $scope.partiallySeen = function(showId) {
+      console.log("partially Seen " + showId);
     }
 
     $scope.fetchShows();

@@ -11,12 +11,26 @@ layout: default
 </div> <!-- /home -->
 
 <div class="container" ng-controller="showController">
-  <div ng-show="user.password.email">
+  <!-- <div ng-show="user.password.email"> -->
+  <div class="">
     <p>Select the TV Shows you have finished so far</p>
     <div class="row">
       <div ng-repeat="show in shows">
         <div class="col-lg-2">
-          <img src="[[{ show.img }]]" class="img-responsive">
+          <div id="img-container" class="show-image">
+            <span ng-show="show.img">
+              <img src="[[{ show.img }]]" class="img-responsive">
+            </span>
+
+            <span ng-show="!show.img">
+              <img src="[[{ show.image.original }]]" class="img-responsive">
+            </span>
+
+            <input class="btn update" type="button" value="Seen" ng-click="seen(show.id)" />
+            <input class="btn delete" type="button" value="Skip" ng-click="skip(show.id)" />
+            <input class="btn partially-seen" type="button" value="Partially seen" ng-click="partiallySeen(show.id)" />
+          </div>
+
           <p>[[{ show.title }]]</p>
         </div>
       </div>
