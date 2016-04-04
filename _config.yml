@@ -1,0 +1,23 @@
+# Site settings
+title: TV Show Progress Tracker
+email: your-email@domain.com
+description: "your site description"
+baseurl: "/" 
+url: "http://yourdomain.com"
+# angular_version: 1.2.21
+# bootstrap_version: 3.2.0
+# jquery_version: 1.11.1
+# firebase_version: 1.0.18
+# angularfire_version: 0.8.0
+
+angular_version: 1.5.3 #1.2.21
+bootstrap_version: 3.2.0
+jquery_version: 2.1.1
+firebase_version: 2.1.0
+angularfire_version: 0.8.0
+
+firebase_url: "https://diziler.firebaseio.com/"
+
+# Build settings
+markdown: kramdown
+permalink: pretty

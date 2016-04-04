@@ -1,0 +1,25 @@
+---
+layout: default
+---
+
+<div class="home jumbotron">
+	<div class="container">
+	  <h3>Simple App to track your TV Show progress</h3>
+    <p>Login and select the tv shows you have finished and then fill your progress on the ones you still watch.</p>
+	</div> <!-- /container -->
+
+</div> <!-- /home -->
+
+<div class="container" ng-controller="showController">
+  <div ng-show="user.password.email">
+    <p>Select the TV Shows you have finished so far</p>
+    <div class="row">
+      <div ng-repeat="show in shows">
+        <div class="col-lg-2">
+          <img src="[[{ show.img }]]" class="img-responsive">
+          <p>[[{ show.title }]]</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
